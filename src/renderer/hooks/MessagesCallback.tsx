@@ -41,29 +41,29 @@ const useMessages = () => {
     // clear the input field
     event.currentTarget.reset();
 
-    if (!generator) {
-      return;
-    }
+    // if (!generator) {
+    //   return;
+    // }
 
-    // generate a response
-    generator
-      .generateResponse(message)
-      .then((response: { data: string[] }) => {
-        console.log(response);
-        setChatMessages((prevMessages) => [
-          ...prevMessages,
-          {
-            type: 'bot',
-            message: response.data[0].split('</s>')[0],
-            delay: 0,
-          },
-        ]);
-        setIsLoading(false);
-      })
-      .catch((error: any) => {
-        console.log(error);
-      });
-    setIsLoading(true);
+    // // generate a response
+    // generator
+    //   .generateResponse(message)
+    //   .then((response: { data: string[] }) => {
+    //     console.log(response);
+    //     setChatMessages((prevMessages) => [
+    //       ...prevMessages,
+    //       {
+    //         type: 'bot',
+    //         message: response.data[0].split('</s>')[0],
+    //         delay: 0,
+    //       },
+    //     ]);
+    //     setIsLoading(false);
+    //   })
+    //   .catch((error: any) => {
+    //     console.log(error);
+    //   });
+    // setIsLoading(true);
   }
 
   return [chatMessages, isLoading, handleSubmit, isChatEnabled] as const;
