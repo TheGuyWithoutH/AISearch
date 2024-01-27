@@ -7,9 +7,13 @@ const useMessages = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isChatEnabled, setIsChatEnabled] = useState(false);
   const [isLLMLoaded, setIsLLMLoaded] = useState(false);
-  const [generator, setGenerator] = useState<LlmGeneration>(
-    new LlmGeneration(() => setIsLLMLoaded(true)),
+  const [generator, setGenerator] = useState<LlmGeneration | undefined>(
+    undefined,
   );
+
+  useEffect(() => {
+    setGenerator(new LlmGeneration(() => setIsLLMLoaded(true)));
+  }, []);
 
   useEffect(() => {
     if (isLLMLoaded) {
@@ -36,6 +40,10 @@ const useMessages = () => {
 
     // clear the input field
     event.currentTarget.reset();
+
+    if (!generator) {
+      return;
+    }
 
     // generate a response
     generator

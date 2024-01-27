@@ -13,6 +13,6 @@
     "link-modules": "node -r ts-node/register ../../.erb/scripts/link-modules.ts"
   },
   "dependencies": {
-    "@gradio/client": "0.6.0"
+    "@gradio/client": "0.7.0"
   }
 }
