@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 90%;
+}
+
+.container > :first-child {
+  margin-bottom: 30px;
+}
+
+.container > :last-child {
+  margin-top: 30px;
+}
+
+.options {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.option {
+  background-color: #43abe2;
+  color: white;
+  font-weight: bold;
+  padding: 2px 4px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

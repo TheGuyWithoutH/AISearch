@@ -80,7 +80,7 @@ const createWindow = async () => {
   };
 
   mainWindow = new BrowserWindow({
-    width: 600,
+    width: 610,
     height: 670,
     frame: false,
     transparent: true,
@@ -134,7 +134,7 @@ const createWindow = async () => {
     return { action: 'deny' };
   });
 
-  mainWindow.setAlwaysOnTop(true, 'floating');
+  // mainWindow.setAlwaysOnTop(true, 'floating');
 
   // Remove this if your app does not use auto updates
   // eslint-disable-next-line

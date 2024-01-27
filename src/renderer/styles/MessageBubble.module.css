@@ -1,0 +1,97 @@
+/* styles/MessageBubble.module.css */
+
+.messageBubble {
+  position: relative;
+  display: flex;
+  max-width: 70%;
+  margin-bottom: 16px;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px #0000003b;
+}
+
+.profilePicture {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+.sender {
+  background-color: #43abe2;
+  color: #fff;
+  align-self: flex-end; /* Align sender's message bubbles to the right */
+}
+
+.receiver {
+  background-color: #e0e0e0;
+  color: #333;
+  align-self: flex-start; /* Align receiver's message bubbles to the left */
+}
+
+.arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.sender .arrow {
+  border-width: 8px 0 8px 15px;
+  border-color: transparent transparent transparent #43abe2;
+  right: -14px;
+  top: 20px;
+  transform: translateY(-50%);
+}
+
+.receiver .arrow {
+  border-width: 8px 15px 8px 0;
+  border-color: transparent #e0e0e0 transparent transparent;
+  left: -14px;
+  top: 20px;
+  transform: translateY(-50%);
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  display: flex;
+  margin-top: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: #333;
+  border-radius: 50%;
+  animation: dotScale 0.6s infinite ease-in-out;
+}
+
+.dot1 {
+  animation-delay: 0.1s;
+}
+
+.dot2 {
+  animation-delay: 0.2s;
+}
+
+.dot3 {
+  animation-delay: 0.3s;
+}
+
+@keyframes dotScale {
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
