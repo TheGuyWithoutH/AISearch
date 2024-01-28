@@ -3,6 +3,10 @@
 import { FormEvent, useEffect, useState } from "react";
 import { Message } from "../components/ChatFeed";
 import { LlmGeneration } from "./LlmGeneration";
+import { setUserConfig } from "../data/database";
+import { useRouter } from "next/navigation";
+
+const SETTINGS_CMD = "/settings";
 
 const useMessages = () => {
   const [chatMessages, setChatMessages] = useState<Message[]>([]);
@@ -12,6 +16,8 @@ const useMessages = () => {
   const [generator, setGenerator] = useState<LlmGeneration | undefined>(
     undefined
   );
+
+  const router = useRouter();
 
   useEffect(() => {
     setGenerator(new LlmGeneration(() => setIsLLMLoaded(true)));
@@ -30,6 +36,11 @@ const useMessages = () => {
     // Read the form data
     const formData = new FormData(event.currentTarget);
     const message = formData.get("message") as string;
+
+    if (message === SETTINGS_CMD) {
+      router.push("/settings");
+      return;
+    }
 
     // add the message to the chat
     setChatMessages((prevMessages) => [

@@ -1,0 +1,107 @@
+/* FILEPATH: /c:/Users/Ugo/OneDrive/Documents/Projets/AISearch/renderer/app/styles/Settings.module.css */
+
+.settingsContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+  border-radius: 20px;
+  height: 600px;
+  width: 600px;
+  scrollbar-color: #afafaf transparent;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.203);
+  padding: 30px;
+  align-items: center;
+}
+
+.settingsContainer::-webkit-scrollbar {
+  width: 10px;
+}
+
+.settingsContainer::-webkit-scrollbar-thumb {
+  background-color: #afafaf;
+  border-radius: 10px;
+}
+
+.settingsContainer__title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.settings_textOption {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 70%;
+}
+
+.settings_OptionLabel {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.settings_textOptionInput {
+  margin-top: 0.25rem;
+  border: solid 1px #4b5563;
+  border-radius: 0.375rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: black;
+}
+
+.react_switch_checkbox {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+.react_switch_checkbox:checked + .react_switch_label .react_switch_button {
+  left: 100%;
+  transform: translateX(-100%);
+}
+
+.react_switch_label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  width: 70px;
+  height: 35px;
+  background: grey;
+  border-radius: 100px;
+  position: relative;
+  transition: background-color 0.2s;
+}
+
+.react_switch_label:active .react_switch_button {
+  width: 35px;
+}
+
+.react_switch_label .react_switch_button {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  border-radius: 100px;
+  transition: 0.2s;
+  background: #fff;
+  box-shadow: 0 0 6px 2px rgba(10, 10, 10, 0.29);
+}
+
+.settings_switchOption {
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+}

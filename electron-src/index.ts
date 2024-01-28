@@ -13,20 +13,14 @@ import {
 } from "electron";
 import isDev from "electron-is-dev";
 import prepareNext from "electron-next";
+import Store from "electron-store";
 
+Store.initRenderer();
 let show = true;
 
 // Prepare the renderer once the app is ready
 app.on("ready", async () => {
   await prepareNext("./renderer");
-
-  // const icon = isDev
-  //   ? join(__dirname, "../renderer/out/icon4.png")
-  //   : format({
-  //       pathname: join(__dirname, "../renderer/out/icon4.png"),
-  //       protocol: "file:",
-  //       slashes: true,
-  //     });
 
   const icon = join(__dirname, "../renderer/out/icon4.png");
 
@@ -39,7 +33,7 @@ app.on("ready", async () => {
     // // show: false,
     icon: icon,
     webPreferences: {
-      nodeIntegration: false,
+      nodeIntegration: true,
       contextIsolation: true,
       preload: join(__dirname, "preload.js"),
     },
