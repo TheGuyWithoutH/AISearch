@@ -3,11 +3,10 @@
 .messageBubble {
   position: relative;
   display: flex;
-  max-width: 70%;
+  width: 100%;
   margin-bottom: 16px;
   padding: 12px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px #0000003b;
+  border-radius: 15px;
 }
 
 .profilePicture {
@@ -19,15 +18,16 @@
 }
 
 .sender {
-  background-color: #43abe2;
+  /* background-color: #43abe2;
   color: #fff;
-  align-self: flex-end; /* Align sender's message bubbles to the right */
+  align-self: flex-end; Align sender's message bubbles to the right */
 }
 
 .receiver {
-  background-color: #e0e0e0;
+  background-color: #e9e9e9;
   color: #333;
   align-self: flex-start; /* Align receiver's message bubbles to the left */
+  padding-right: 30px;
 }
 
 .arrow {
@@ -65,8 +65,8 @@
 }
 
 .dot {
-  width: 10px;
-  height: 10px;
+  width: 5px;
+  height: 5px;
   margin: 0 5px;
   background-color: #333;
   border-radius: 50%;
@@ -83,6 +83,16 @@
 
 .dot3 {
   animation-delay: 0.3s;
+}
+
+.copyIcon {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  opacity: 0.2;
 }
 
 @keyframes dotScale {

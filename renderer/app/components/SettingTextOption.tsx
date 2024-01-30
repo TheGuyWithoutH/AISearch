@@ -8,17 +8,26 @@ export const SettingTextOption = (
     label: string;
     value: string;
     onChange: (value: string) => void;
+    isParagraph?: boolean;
   }>
 ) => {
   return (
     <div className={styles.settings_textOption}>
       <label className={styles.settings_OptionLabel}>{props.label}</label>
-      <input
-        type="text"
-        value={props.value}
-        onChange={(event) => props.onChange(event.target.value)}
-        className={styles.settings_textOptionInput}
-      />
+      {props.isParagraph ? (
+        <textarea
+          value={props.value}
+          onChange={(event) => props.onChange(event.target.value)}
+          className={styles.settings_textOptionInputParagraph}
+        />
+      ) : (
+        <input
+          type="text"
+          value={props.value}
+          onChange={(event) => props.onChange(event.target.value)}
+          className={styles.settings_textOptionInput}
+        />
+      )}
     </div>
   );
 };

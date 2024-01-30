@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../styles/MessageBubble.module.css";
+import { FaRegCopy } from "react-icons/fa";
 
 const MessageBubble = ({
   sender,
@@ -26,7 +27,6 @@ const MessageBubble = ({
         alt="Profile"
         className={styles.profilePicture}
       />
-      <div className={styles.arrow}></div>
       {isLoading ? (
         <div className={styles.loading}>
           <div className={styles.loader}>
@@ -36,7 +36,16 @@ const MessageBubble = ({
           </div>
         </div>
       ) : (
-        <p>{message}</p>
+        <>
+          <p>{message}</p>
+          {sender === "receiver" && (
+            <FaRegCopy
+              title="Copy to clipboard"
+              className={styles.copyIcon}
+              onClick={() => navigator.clipboard.writeText(message)}
+            />
+          )}
+        </>
       )}
     </div>
   );

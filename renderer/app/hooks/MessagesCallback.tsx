@@ -5,10 +5,12 @@ import { Message } from "../components/ChatFeed";
 import { LlmGeneration } from "./LlmGeneration";
 import { setUserConfig } from "../data/database";
 import { useRouter } from "next/navigation";
+import { getLink } from "./utils";
+import { usePathname } from "next/navigation";
 
 const SETTINGS_CMD = "/settings";
 
-const useMessages = () => {
+const useMessages = (modelUrl?: string) => {
   const [chatMessages, setChatMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isChatEnabled, setIsChatEnabled] = useState(false);
@@ -18,9 +20,10 @@ const useMessages = () => {
   );
 
   const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
-    setGenerator(new LlmGeneration(() => setIsLLMLoaded(true)));
+    setGenerator(new LlmGeneration(() => setIsLLMLoaded(true), modelUrl));
   }, []);
 
   useEffect(() => {
@@ -38,7 +41,8 @@ const useMessages = () => {
     const message = formData.get("message") as string;
 
     if (message === SETTINGS_CMD) {
-      router.push("/settings");
+      const link = getLink("/settings", pathname);
+      router.push(link);
       return;
     }
 

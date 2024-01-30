@@ -3,9 +3,10 @@ import { client } from "@gradio/client";
 export class LlmGeneration {
   [x: string]: any;
 
-  constructor(loadedCallback: () => void) {
+  constructor(loadedCallback: () => void, modelUrl?: string) {
     client(
-      "https://theguywithouth-mistral-7b-chat.hf.space/--replicas/1suiu/",
+      modelUrl ??
+        "https://theguywithouth-mistral-7b-chat.hf.space/--replicas/1suiu/",
       {}
     ).then((app) => {
       this.app = app;

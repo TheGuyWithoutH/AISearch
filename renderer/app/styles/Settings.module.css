@@ -25,13 +25,13 @@
 .settingsContainer__title {
   font-size: 2rem;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   width: 100%;
   text-align: center;
 }
 
 .settings_textOption {
-  margin-bottom: 1.5rem;
+  margin-bottom: 15px;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -53,6 +53,34 @@
   font-weight: 400;
   line-height: 1.5;
   color: black;
+}
+
+.settings_textOptionInputParagraph {
+  margin-top: 0.25rem;
+  border: solid 1px #4b5563;
+  border-radius: 0.375rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: black;
+  background: none;
+  height: 6rem;
+  resize: none;
+  scrollbar-color: #afafaf transparent;
+}
+
+.settings_textOptionInputParagraph:focus {
+  outline: none;
+}
+
+.settings_textOptionInputParagraph::-webkit-scrollbar {
+  width: 10px;
+}
+
+.settings_textOptionInputParagraph::-webkit-scrollbar-thumb {
+  background-color: #afafaf;
+  border-radius: 10px;
 }
 
 .react_switch_checkbox {
@@ -98,7 +126,7 @@
 
 .settings_switchOption {
   margin-bottom: 1.5rem;
-  margin-top: 1.5rem;
+  margin-top: 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

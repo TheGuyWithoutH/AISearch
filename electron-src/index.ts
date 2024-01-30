@@ -13,10 +13,15 @@ import {
 } from "electron";
 import isDev from "electron-is-dev";
 import prepareNext from "electron-next";
+import ipc from "./ipc";
+import { SchemaType } from "./store";
 import Store from "electron-store";
 
-Store.initRenderer();
 let show = true;
+
+// Initialize IPC handlers
+const store = new Store<SchemaType>();
+ipc.init(store);
 
 // Prepare the renderer once the app is ready
 app.on("ready", async () => {
@@ -32,8 +37,10 @@ app.on("ready", async () => {
     resizable: false,
     // // show: false,
     icon: icon,
+
     webPreferences: {
-      nodeIntegration: true,
+      nodeIntegration: false,
+      sandbox: false,
       contextIsolation: true,
       preload: join(__dirname, "preload.js"),
     },

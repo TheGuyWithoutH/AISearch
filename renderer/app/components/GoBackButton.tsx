@@ -6,7 +6,7 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import { FaArrowLeft } from "react-icons/fa";
 
-const GoBackButton = () => {
+const GoBackButton = ({ onLeave }: { onLeave?: () => Promise<void> }) => {
   const router = useRouter();
   return (
     <div
@@ -17,7 +17,10 @@ const GoBackButton = () => {
         left: "20px",
         cursor: "pointer",
       }}
-      onClick={() => router.back()}
+      onClick={() => {
+        if (onLeave) onLeave().then(() => router.back());
+        else router.back();
+      }}
     >
       <FaArrowLeft />
     </div>
