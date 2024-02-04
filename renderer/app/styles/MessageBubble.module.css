@@ -53,6 +53,12 @@
   transform: translateY(-50%);
 }
 
+.message {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .loading {
   display: flex;
   align-items: center;

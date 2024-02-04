@@ -1,9 +1,10 @@
-import React from 'react';
-import MessageBubble from './MessageBubble';
-import styles from '../styles/ChatFeed.module.css';
+import React, { useEffect } from "react";
+import MessageBubble from "./MessageBubble";
+import styles from "../styles/ChatFeed.module.css";
+import hljs from "highlight.js";
 
 export type Message = {
-  type: 'bot' | 'instructions' | 'user';
+  type: "bot" | "instructions" | "user";
   message: string;
   options?: {
     text: string;
@@ -18,13 +19,17 @@ const ChatFeed = ({
   messages: Message[];
   isLoading: boolean;
 }) => {
+  useEffect(() => {
+    hljs.highlightAll();
+  }, [messages]);
+
   return (
     <div className={styles.container}>
       {messages.map((message, index) => {
         return (
           <MessageBubble
             key={index}
-            sender={message.type === 'bot' ? 'receiver' : 'sender'}
+            sender={message.type === "bot" ? "receiver" : "sender"}
             message={message.message}
           />
         );

@@ -6,10 +6,44 @@ body {
   margin: 0;
   font-family: sans-serif;
   height: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 p {
   margin: 0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+  /* color: #00b1ff; */
+  white-space: pre-wrap;
+}
+
+ol {
+  margin: 0;
+  padding-left: 20px;
+  white-space: pre-wrap;
+  list-style: decimal;
+}
+
+li {
+  margin: 0;
+  padding: 0;
+  display: list-item;
+  white-space: pre-wrap;
+}
+
+pre {
+  margin: 10px 0;
+}
+
+br {
+  margin: 0;
+  padding: 0;
+  white-space: pre-wrap;
 }
 
 .app {

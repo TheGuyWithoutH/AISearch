@@ -31,7 +31,7 @@ app.on("ready", async () => {
 
   const mainWindow = new BrowserWindow({
     width: 610,
-    height: 670,
+    height: 680,
     frame: false,
     transparent: true,
     resizable: false,

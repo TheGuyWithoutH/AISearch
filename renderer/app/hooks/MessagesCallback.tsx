@@ -7,6 +7,8 @@ import { setUserConfig } from "../data/database";
 import { useRouter } from "next/navigation";
 import { getLink } from "./utils";
 import { usePathname } from "next/navigation";
+import SpeechGenerator from "./SpeechGenerator";
+import responseParser from "./MessageParsing";
 
 const SETTINGS_CMD = "/settings";
 
@@ -21,6 +23,7 @@ const useMessages = (modelUrl?: string) => {
 
   const router = useRouter();
   const pathname = usePathname();
+  const speechSynthesis = new SpeechGenerator();
 
   useEffect(() => {
     setGenerator(new LlmGeneration(() => setIsLLMLoaded(true), modelUrl));
@@ -71,11 +74,12 @@ const useMessages = (modelUrl?: string) => {
           ...prevMessages,
           {
             type: "bot",
-            message: response.data[0].split("</s>")[0],
+            message: responseParser(response.data[0]),
             delay: 0,
           },
         ]);
         setIsLoading(false);
+        //speechSynthesis.speak(response.data[0].split("\n")[0]);
       })
       .catch((error: any) => {
         console.log(error);

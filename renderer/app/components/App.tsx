@@ -3,6 +3,7 @@
 import { createContext } from "react";
 import { DEFAULT_SETTINGS, UserSettings } from "../../../electron-src/store";
 import { useGlobalSettings } from "../hooks/SettingsCallback";
+import "../styles/dracula-theme.css";
 
 export const SettingsContext = createContext<{
   settings: UserSettings;

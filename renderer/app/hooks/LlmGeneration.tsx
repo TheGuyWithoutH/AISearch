@@ -10,7 +10,6 @@ export class LlmGeneration {
       {}
     ).then((app) => {
       this.app = app;
-      console.log(app.config);
       app.view_api().then((api) => {
         console.log(api);
       });
