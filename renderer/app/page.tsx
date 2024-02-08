@@ -20,7 +20,11 @@ export default function App() {
     <div className="app">
       <SearchBar onSubmit={handleSubmit} />
       <div className="results">
-        <ChatFeed messages={chatMessages} isLoading={isLoading} />
+        <ChatFeed
+          messages={chatMessages}
+          isLoading={isLoading}
+          profilePictureSrc={settings.profile_picture}
+        />
       </div>
     </div>
   );

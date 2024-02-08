@@ -19,4 +19,7 @@ contextBridge.exposeInMainWorld("electron", {
   setSettings: async (newSettings: UserSettings) =>
     ipcRenderer.invoke("setSettings", newSettings),
   getSettings: async () => ipcRenderer.invoke("getSettings"),
+  setChats: async (newChats: any) => ipcRenderer.invoke("setChats", newChats),
+  getChats: async () => ipcRenderer.invoke("getChats"),
+  clearChats: async () => ipcRenderer.invoke("clearChats"),
 });

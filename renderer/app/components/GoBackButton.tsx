@@ -22,7 +22,7 @@ const GoBackButton = ({ onLeave }: { onLeave?: () => Promise<void> }) => {
         else router.back();
       }}
     >
-      <FaArrowLeft />
+      <FaArrowLeft height={"50%"} />
     </div>
   );
 };

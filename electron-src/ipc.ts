@@ -18,11 +18,25 @@ const init = (store: Store<SchemaType>) => {
     "setSettings",
     async (_, newSettings: Partial<SchemaType["settings"]>) => {
       const prevSettings = store.get(STORE_KEYS.SETTINGS);
-      console.log("prevSettings", { ...prevSettings, ...newSettings });
       //@ts-ignore
       store.set(STORE_KEYS.SETTINGS, { ...prevSettings, ...newSettings });
     }
   );
+
+  ipcMain.handle("getChats", () => {
+    if (!store.has(STORE_KEYS.CHATS)) {
+      store.set(STORE_KEYS.CHATS, []);
+    }
+    return store.get(STORE_KEYS.CHATS);
+  });
+
+  ipcMain.handle("setChats", async (_, newChats: SchemaType["chats"]) => {
+    store.set(STORE_KEYS.CHATS, newChats);
+  });
+
+  ipcMain.handle("clearChats", async () => {
+    store.set(STORE_KEYS.CHATS, []);
+  });
 };
 
 export default {
